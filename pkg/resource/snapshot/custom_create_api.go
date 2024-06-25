@@ -16,11 +16,12 @@ package snapshot
 import (
 	"context"
 
-	svcapitypes "github.com/aws-controllers-k8s/elasticache-controller/apis/v1alpha1"
 	ackv1alpha1 "github.com/aws-controllers-k8s/runtime/apis/core/v1alpha1"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	svcsdk "github.com/aws/aws-sdk-go/service/elasticache"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+
+	svcapitypes "github.com/aws-controllers-k8s/elasticache-controller/apis/v1alpha1"
 )
 
 func (rm *resourceManager) CustomCreateSnapshot(
@@ -29,7 +30,7 @@ func (rm *resourceManager) CustomCreateSnapshot(
 ) (*resource, error) {
 	if r.ko.Spec.SourceSnapshotName != nil {
 		if r.ko.Spec.CacheClusterID != nil || r.ko.Spec.ReplicationGroupID != nil {
-			return nil, awserr.New("InvalidParameterCombination", "Cannot specify CacheClusteId or "+
+			return nil, awserr.New("InvalidParameterCombination", "Cannot specify CacheClusterId or "+
 				"ReplicationGroupId while SourceSnapshotName is specified", nil)
 		}
 

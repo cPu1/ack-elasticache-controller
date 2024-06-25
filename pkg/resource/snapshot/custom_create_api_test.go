@@ -15,9 +15,11 @@ package snapshot
 
 import (
 	"context"
-	svcapitypes "github.com/aws-controllers-k8s/elasticache-controller/apis/v1alpha1"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+
+	svcapitypes "github.com/aws-controllers-k8s/elasticache-controller/apis/v1alpha1"
 )
 
 // Helper methods to setup tests
@@ -67,5 +69,5 @@ func Test_CustomCreateSnapshot_InvalidParam(t *testing.T) {
 	res, err := rm.CustomCreateSnapshot(ctx, desired)
 	assert.Nil(res)
 	assert.NotNil(err)
-	assert.Equal(err.Error(), "InvalidParameterCombination: Cannot specify CacheClusteId or ReplicationGroupId while SourceSnapshotName is specified")
+	assert.Equal(err.Error(), "InvalidParameterCombination: Cannot specify CacheClusterId or ReplicationGroupId while SourceSnapshotName is specified")
 }
