@@ -219,6 +219,10 @@ spec:
                         subnetOutpostARN:
                           type: string
                       type: object
+                    supportedNetworkTypes:
+                      items:
+                        type: string
+                      type: array
                   type: object
                 type: array
               vpcID:

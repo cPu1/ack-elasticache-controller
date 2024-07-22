@@ -313,76 +313,85 @@ func (rm *resourceManager) sdkFind(
 			if elem.PendingModifiedValues.AutomaticFailoverStatus != nil {
 				f18.AutomaticFailoverStatus = elem.PendingModifiedValues.AutomaticFailoverStatus
 			}
+			if elem.PendingModifiedValues.ClusterMode != nil {
+				f18.ClusterMode = elem.PendingModifiedValues.ClusterMode
+			}
 			if elem.PendingModifiedValues.LogDeliveryConfigurations != nil {
-				f18f2 := []*svcapitypes.PendingLogDeliveryConfiguration{}
-				for _, f18f2iter := range elem.PendingModifiedValues.LogDeliveryConfigurations {
-					f18f2elem := &svcapitypes.PendingLogDeliveryConfiguration{}
-					if f18f2iter.DestinationDetails != nil {
-						f18f2elemf0 := &svcapitypes.DestinationDetails{}
-						if f18f2iter.DestinationDetails.CloudWatchLogsDetails != nil {
-							f18f2elemf0f0 := &svcapitypes.CloudWatchLogsDestinationDetails{}
-							if f18f2iter.DestinationDetails.CloudWatchLogsDetails.LogGroup != nil {
-								f18f2elemf0f0.LogGroup = f18f2iter.DestinationDetails.CloudWatchLogsDetails.LogGroup
+				f18f3 := []*svcapitypes.PendingLogDeliveryConfiguration{}
+				for _, f18f3iter := range elem.PendingModifiedValues.LogDeliveryConfigurations {
+					f18f3elem := &svcapitypes.PendingLogDeliveryConfiguration{}
+					if f18f3iter.DestinationDetails != nil {
+						f18f3elemf0 := &svcapitypes.DestinationDetails{}
+						if f18f3iter.DestinationDetails.CloudWatchLogsDetails != nil {
+							f18f3elemf0f0 := &svcapitypes.CloudWatchLogsDestinationDetails{}
+							if f18f3iter.DestinationDetails.CloudWatchLogsDetails.LogGroup != nil {
+								f18f3elemf0f0.LogGroup = f18f3iter.DestinationDetails.CloudWatchLogsDetails.LogGroup
 							}
-							f18f2elemf0.CloudWatchLogsDetails = f18f2elemf0f0
+							f18f3elemf0.CloudWatchLogsDetails = f18f3elemf0f0
 						}
-						if f18f2iter.DestinationDetails.KinesisFirehoseDetails != nil {
-							f18f2elemf0f1 := &svcapitypes.KinesisFirehoseDestinationDetails{}
-							if f18f2iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream != nil {
-								f18f2elemf0f1.DeliveryStream = f18f2iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream
+						if f18f3iter.DestinationDetails.KinesisFirehoseDetails != nil {
+							f18f3elemf0f1 := &svcapitypes.KinesisFirehoseDestinationDetails{}
+							if f18f3iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream != nil {
+								f18f3elemf0f1.DeliveryStream = f18f3iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream
 							}
-							f18f2elemf0.KinesisFirehoseDetails = f18f2elemf0f1
+							f18f3elemf0.KinesisFirehoseDetails = f18f3elemf0f1
 						}
-						f18f2elem.DestinationDetails = f18f2elemf0
+						f18f3elem.DestinationDetails = f18f3elemf0
 					}
-					if f18f2iter.DestinationType != nil {
-						f18f2elem.DestinationType = f18f2iter.DestinationType
+					if f18f3iter.DestinationType != nil {
+						f18f3elem.DestinationType = f18f3iter.DestinationType
 					}
-					if f18f2iter.LogFormat != nil {
-						f18f2elem.LogFormat = f18f2iter.LogFormat
+					if f18f3iter.LogFormat != nil {
+						f18f3elem.LogFormat = f18f3iter.LogFormat
 					}
-					if f18f2iter.LogType != nil {
-						f18f2elem.LogType = f18f2iter.LogType
+					if f18f3iter.LogType != nil {
+						f18f3elem.LogType = f18f3iter.LogType
 					}
-					f18f2 = append(f18f2, f18f2elem)
+					f18f3 = append(f18f3, f18f3elem)
 				}
-				f18.LogDeliveryConfigurations = f18f2
+				f18.LogDeliveryConfigurations = f18f3
 			}
 			if elem.PendingModifiedValues.PrimaryClusterId != nil {
 				f18.PrimaryClusterID = elem.PendingModifiedValues.PrimaryClusterId
 			}
 			if elem.PendingModifiedValues.Resharding != nil {
-				f18f4 := &svcapitypes.ReshardingStatus{}
+				f18f5 := &svcapitypes.ReshardingStatus{}
 				if elem.PendingModifiedValues.Resharding.SlotMigration != nil {
-					f18f4f0 := &svcapitypes.SlotMigration{}
+					f18f5f0 := &svcapitypes.SlotMigration{}
 					if elem.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage != nil {
-						f18f4f0.ProgressPercentage = elem.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage
+						f18f5f0.ProgressPercentage = elem.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage
 					}
-					f18f4.SlotMigration = f18f4f0
+					f18f5.SlotMigration = f18f5f0
 				}
-				f18.Resharding = f18f4
+				f18.Resharding = f18f5
+			}
+			if elem.PendingModifiedValues.TransitEncryptionEnabled != nil {
+				f18.TransitEncryptionEnabled = elem.PendingModifiedValues.TransitEncryptionEnabled
+			}
+			if elem.PendingModifiedValues.TransitEncryptionMode != nil {
+				f18.TransitEncryptionMode = elem.PendingModifiedValues.TransitEncryptionMode
 			}
 			if elem.PendingModifiedValues.UserGroups != nil {
-				f18f5 := &svcapitypes.UserGroupsUpdateStatus{}
+				f18f8 := &svcapitypes.UserGroupsUpdateStatus{}
 				if elem.PendingModifiedValues.UserGroups.UserGroupIdsToAdd != nil {
-					f18f5f0 := []*string{}
-					for _, f18f5f0iter := range elem.PendingModifiedValues.UserGroups.UserGroupIdsToAdd {
-						var f18f5f0elem string
-						f18f5f0elem = *f18f5f0iter
-						f18f5f0 = append(f18f5f0, &f18f5f0elem)
+					f18f8f0 := []*string{}
+					for _, f18f8f0iter := range elem.PendingModifiedValues.UserGroups.UserGroupIdsToAdd {
+						var f18f8f0elem string
+						f18f8f0elem = *f18f8f0iter
+						f18f8f0 = append(f18f8f0, &f18f8f0elem)
 					}
-					f18f5.UserGroupIDsToAdd = f18f5f0
+					f18f8.UserGroupIDsToAdd = f18f8f0
 				}
 				if elem.PendingModifiedValues.UserGroups.UserGroupIdsToRemove != nil {
-					f18f5f1 := []*string{}
-					for _, f18f5f1iter := range elem.PendingModifiedValues.UserGroups.UserGroupIdsToRemove {
-						var f18f5f1elem string
-						f18f5f1elem = *f18f5f1iter
-						f18f5f1 = append(f18f5f1, &f18f5f1elem)
+					f18f8f1 := []*string{}
+					for _, f18f8f1iter := range elem.PendingModifiedValues.UserGroups.UserGroupIdsToRemove {
+						var f18f8f1elem string
+						f18f8f1elem = *f18f8f1iter
+						f18f8f1 = append(f18f8f1, &f18f8f1elem)
 					}
-					f18f5.UserGroupIDsToRemove = f18f5f1
+					f18f8.UserGroupIDsToRemove = f18f8f1
 				}
-				f18.UserGroups = f18f5
+				f18.UserGroups = f18f8
 			}
 			ko.Status.PendingModifiedValues = f18
 		} else {
@@ -785,76 +794,85 @@ func (rm *resourceManager) sdkCreate(
 		if resp.ReplicationGroup.PendingModifiedValues.AutomaticFailoverStatus != nil {
 			f18.AutomaticFailoverStatus = resp.ReplicationGroup.PendingModifiedValues.AutomaticFailoverStatus
 		}
+		if resp.ReplicationGroup.PendingModifiedValues.ClusterMode != nil {
+			f18.ClusterMode = resp.ReplicationGroup.PendingModifiedValues.ClusterMode
+		}
 		if resp.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations != nil {
-			f18f2 := []*svcapitypes.PendingLogDeliveryConfiguration{}
-			for _, f18f2iter := range resp.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations {
-				f18f2elem := &svcapitypes.PendingLogDeliveryConfiguration{}
-				if f18f2iter.DestinationDetails != nil {
-					f18f2elemf0 := &svcapitypes.DestinationDetails{}
-					if f18f2iter.DestinationDetails.CloudWatchLogsDetails != nil {
-						f18f2elemf0f0 := &svcapitypes.CloudWatchLogsDestinationDetails{}
-						if f18f2iter.DestinationDetails.CloudWatchLogsDetails.LogGroup != nil {
-							f18f2elemf0f0.LogGroup = f18f2iter.DestinationDetails.CloudWatchLogsDetails.LogGroup
+			f18f3 := []*svcapitypes.PendingLogDeliveryConfiguration{}
+			for _, f18f3iter := range resp.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations {
+				f18f3elem := &svcapitypes.PendingLogDeliveryConfiguration{}
+				if f18f3iter.DestinationDetails != nil {
+					f18f3elemf0 := &svcapitypes.DestinationDetails{}
+					if f18f3iter.DestinationDetails.CloudWatchLogsDetails != nil {
+						f18f3elemf0f0 := &svcapitypes.CloudWatchLogsDestinationDetails{}
+						if f18f3iter.DestinationDetails.CloudWatchLogsDetails.LogGroup != nil {
+							f18f3elemf0f0.LogGroup = f18f3iter.DestinationDetails.CloudWatchLogsDetails.LogGroup
 						}
-						f18f2elemf0.CloudWatchLogsDetails = f18f2elemf0f0
+						f18f3elemf0.CloudWatchLogsDetails = f18f3elemf0f0
 					}
-					if f18f2iter.DestinationDetails.KinesisFirehoseDetails != nil {
-						f18f2elemf0f1 := &svcapitypes.KinesisFirehoseDestinationDetails{}
-						if f18f2iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream != nil {
-							f18f2elemf0f1.DeliveryStream = f18f2iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream
+					if f18f3iter.DestinationDetails.KinesisFirehoseDetails != nil {
+						f18f3elemf0f1 := &svcapitypes.KinesisFirehoseDestinationDetails{}
+						if f18f3iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream != nil {
+							f18f3elemf0f1.DeliveryStream = f18f3iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream
 						}
-						f18f2elemf0.KinesisFirehoseDetails = f18f2elemf0f1
+						f18f3elemf0.KinesisFirehoseDetails = f18f3elemf0f1
 					}
-					f18f2elem.DestinationDetails = f18f2elemf0
+					f18f3elem.DestinationDetails = f18f3elemf0
 				}
-				if f18f2iter.DestinationType != nil {
-					f18f2elem.DestinationType = f18f2iter.DestinationType
+				if f18f3iter.DestinationType != nil {
+					f18f3elem.DestinationType = f18f3iter.DestinationType
 				}
-				if f18f2iter.LogFormat != nil {
-					f18f2elem.LogFormat = f18f2iter.LogFormat
+				if f18f3iter.LogFormat != nil {
+					f18f3elem.LogFormat = f18f3iter.LogFormat
 				}
-				if f18f2iter.LogType != nil {
-					f18f2elem.LogType = f18f2iter.LogType
+				if f18f3iter.LogType != nil {
+					f18f3elem.LogType = f18f3iter.LogType
 				}
-				f18f2 = append(f18f2, f18f2elem)
+				f18f3 = append(f18f3, f18f3elem)
 			}
-			f18.LogDeliveryConfigurations = f18f2
+			f18.LogDeliveryConfigurations = f18f3
 		}
 		if resp.ReplicationGroup.PendingModifiedValues.PrimaryClusterId != nil {
 			f18.PrimaryClusterID = resp.ReplicationGroup.PendingModifiedValues.PrimaryClusterId
 		}
 		if resp.ReplicationGroup.PendingModifiedValues.Resharding != nil {
-			f18f4 := &svcapitypes.ReshardingStatus{}
+			f18f5 := &svcapitypes.ReshardingStatus{}
 			if resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration != nil {
-				f18f4f0 := &svcapitypes.SlotMigration{}
+				f18f5f0 := &svcapitypes.SlotMigration{}
 				if resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage != nil {
-					f18f4f0.ProgressPercentage = resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage
+					f18f5f0.ProgressPercentage = resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage
 				}
-				f18f4.SlotMigration = f18f4f0
+				f18f5.SlotMigration = f18f5f0
 			}
-			f18.Resharding = f18f4
+			f18.Resharding = f18f5
+		}
+		if resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionEnabled != nil {
+			f18.TransitEncryptionEnabled = resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionEnabled
+		}
+		if resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionMode != nil {
+			f18.TransitEncryptionMode = resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionMode
 		}
 		if resp.ReplicationGroup.PendingModifiedValues.UserGroups != nil {
-			f18f5 := &svcapitypes.UserGroupsUpdateStatus{}
+			f18f8 := &svcapitypes.UserGroupsUpdateStatus{}
 			if resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToAdd != nil {
-				f18f5f0 := []*string{}
-				for _, f18f5f0iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToAdd {
-					var f18f5f0elem string
-					f18f5f0elem = *f18f5f0iter
-					f18f5f0 = append(f18f5f0, &f18f5f0elem)
+				f18f8f0 := []*string{}
+				for _, f18f8f0iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToAdd {
+					var f18f8f0elem string
+					f18f8f0elem = *f18f8f0iter
+					f18f8f0 = append(f18f8f0, &f18f8f0elem)
 				}
-				f18f5.UserGroupIDsToAdd = f18f5f0
+				f18f8.UserGroupIDsToAdd = f18f8f0
 			}
 			if resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToRemove != nil {
-				f18f5f1 := []*string{}
-				for _, f18f5f1iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToRemove {
-					var f18f5f1elem string
-					f18f5f1elem = *f18f5f1iter
-					f18f5f1 = append(f18f5f1, &f18f5f1elem)
+				f18f8f1 := []*string{}
+				for _, f18f8f1iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToRemove {
+					var f18f8f1elem string
+					f18f8f1elem = *f18f8f1iter
+					f18f8f1 = append(f18f8f1, &f18f8f1elem)
 				}
-				f18f5.UserGroupIDsToRemove = f18f5f1
+				f18f8.UserGroupIDsToRemove = f18f8f1
 			}
-			f18.UserGroups = f18f5
+			f18.UserGroups = f18f8
 		}
 		ko.Status.PendingModifiedValues = f18
 	} else {
@@ -1458,76 +1476,85 @@ func (rm *resourceManager) sdkUpdate(
 		if resp.ReplicationGroup.PendingModifiedValues.AutomaticFailoverStatus != nil {
 			f18.AutomaticFailoverStatus = resp.ReplicationGroup.PendingModifiedValues.AutomaticFailoverStatus
 		}
+		if resp.ReplicationGroup.PendingModifiedValues.ClusterMode != nil {
+			f18.ClusterMode = resp.ReplicationGroup.PendingModifiedValues.ClusterMode
+		}
 		if resp.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations != nil {
-			f18f2 := []*svcapitypes.PendingLogDeliveryConfiguration{}
-			for _, f18f2iter := range resp.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations {
-				f18f2elem := &svcapitypes.PendingLogDeliveryConfiguration{}
-				if f18f2iter.DestinationDetails != nil {
-					f18f2elemf0 := &svcapitypes.DestinationDetails{}
-					if f18f2iter.DestinationDetails.CloudWatchLogsDetails != nil {
-						f18f2elemf0f0 := &svcapitypes.CloudWatchLogsDestinationDetails{}
-						if f18f2iter.DestinationDetails.CloudWatchLogsDetails.LogGroup != nil {
-							f18f2elemf0f0.LogGroup = f18f2iter.DestinationDetails.CloudWatchLogsDetails.LogGroup
+			f18f3 := []*svcapitypes.PendingLogDeliveryConfiguration{}
+			for _, f18f3iter := range resp.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations {
+				f18f3elem := &svcapitypes.PendingLogDeliveryConfiguration{}
+				if f18f3iter.DestinationDetails != nil {
+					f18f3elemf0 := &svcapitypes.DestinationDetails{}
+					if f18f3iter.DestinationDetails.CloudWatchLogsDetails != nil {
+						f18f3elemf0f0 := &svcapitypes.CloudWatchLogsDestinationDetails{}
+						if f18f3iter.DestinationDetails.CloudWatchLogsDetails.LogGroup != nil {
+							f18f3elemf0f0.LogGroup = f18f3iter.DestinationDetails.CloudWatchLogsDetails.LogGroup
 						}
-						f18f2elemf0.CloudWatchLogsDetails = f18f2elemf0f0
+						f18f3elemf0.CloudWatchLogsDetails = f18f3elemf0f0
 					}
-					if f18f2iter.DestinationDetails.KinesisFirehoseDetails != nil {
-						f18f2elemf0f1 := &svcapitypes.KinesisFirehoseDestinationDetails{}
-						if f18f2iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream != nil {
-							f18f2elemf0f1.DeliveryStream = f18f2iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream
+					if f18f3iter.DestinationDetails.KinesisFirehoseDetails != nil {
+						f18f3elemf0f1 := &svcapitypes.KinesisFirehoseDestinationDetails{}
+						if f18f3iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream != nil {
+							f18f3elemf0f1.DeliveryStream = f18f3iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream
 						}
-						f18f2elemf0.KinesisFirehoseDetails = f18f2elemf0f1
+						f18f3elemf0.KinesisFirehoseDetails = f18f3elemf0f1
 					}
-					f18f2elem.DestinationDetails = f18f2elemf0
+					f18f3elem.DestinationDetails = f18f3elemf0
 				}
-				if f18f2iter.DestinationType != nil {
-					f18f2elem.DestinationType = f18f2iter.DestinationType
+				if f18f3iter.DestinationType != nil {
+					f18f3elem.DestinationType = f18f3iter.DestinationType
 				}
-				if f18f2iter.LogFormat != nil {
-					f18f2elem.LogFormat = f18f2iter.LogFormat
+				if f18f3iter.LogFormat != nil {
+					f18f3elem.LogFormat = f18f3iter.LogFormat
 				}
-				if f18f2iter.LogType != nil {
-					f18f2elem.LogType = f18f2iter.LogType
+				if f18f3iter.LogType != nil {
+					f18f3elem.LogType = f18f3iter.LogType
 				}
-				f18f2 = append(f18f2, f18f2elem)
+				f18f3 = append(f18f3, f18f3elem)
 			}
-			f18.LogDeliveryConfigurations = f18f2
+			f18.LogDeliveryConfigurations = f18f3
 		}
 		if resp.ReplicationGroup.PendingModifiedValues.PrimaryClusterId != nil {
 			f18.PrimaryClusterID = resp.ReplicationGroup.PendingModifiedValues.PrimaryClusterId
 		}
 		if resp.ReplicationGroup.PendingModifiedValues.Resharding != nil {
-			f18f4 := &svcapitypes.ReshardingStatus{}
+			f18f5 := &svcapitypes.ReshardingStatus{}
 			if resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration != nil {
-				f18f4f0 := &svcapitypes.SlotMigration{}
+				f18f5f0 := &svcapitypes.SlotMigration{}
 				if resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage != nil {
-					f18f4f0.ProgressPercentage = resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage
+					f18f5f0.ProgressPercentage = resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage
 				}
-				f18f4.SlotMigration = f18f4f0
+				f18f5.SlotMigration = f18f5f0
 			}
-			f18.Resharding = f18f4
+			f18.Resharding = f18f5
+		}
+		if resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionEnabled != nil {
+			f18.TransitEncryptionEnabled = resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionEnabled
+		}
+		if resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionMode != nil {
+			f18.TransitEncryptionMode = resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionMode
 		}
 		if resp.ReplicationGroup.PendingModifiedValues.UserGroups != nil {
-			f18f5 := &svcapitypes.UserGroupsUpdateStatus{}
+			f18f8 := &svcapitypes.UserGroupsUpdateStatus{}
 			if resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToAdd != nil {
-				f18f5f0 := []*string{}
-				for _, f18f5f0iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToAdd {
-					var f18f5f0elem string
-					f18f5f0elem = *f18f5f0iter
-					f18f5f0 = append(f18f5f0, &f18f5f0elem)
+				f18f8f0 := []*string{}
+				for _, f18f8f0iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToAdd {
+					var f18f8f0elem string
+					f18f8f0elem = *f18f8f0iter
+					f18f8f0 = append(f18f8f0, &f18f8f0elem)
 				}
-				f18f5.UserGroupIDsToAdd = f18f5f0
+				f18f8.UserGroupIDsToAdd = f18f8f0
 			}
 			if resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToRemove != nil {
-				f18f5f1 := []*string{}
-				for _, f18f5f1iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToRemove {
-					var f18f5f1elem string
-					f18f5f1elem = *f18f5f1iter
-					f18f5f1 = append(f18f5f1, &f18f5f1elem)
+				f18f8f1 := []*string{}
+				for _, f18f8f1iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToRemove {
+					var f18f8f1elem string
+					f18f8f1elem = *f18f8f1iter
+					f18f8f1 = append(f18f8f1, &f18f8f1elem)
 				}
-				f18f5.UserGroupIDsToRemove = f18f5f1
+				f18f8.UserGroupIDsToRemove = f18f8f1
 			}
-			f18.UserGroups = f18f5
+			f18.UserGroups = f18f8
 		}
 		ko.Status.PendingModifiedValues = f18
 	} else {
@@ -1630,42 +1657,42 @@ func (rm *resourceManager) newUpdateRequestPayload(
 		res.SetCacheSecurityGroupNames(f7)
 	}
 	if r.ko.Spec.LogDeliveryConfigurations != nil {
-		f8 := []*svcsdk.LogDeliveryConfigurationRequest{}
-		for _, f8iter := range r.ko.Spec.LogDeliveryConfigurations {
-			f8elem := &svcsdk.LogDeliveryConfigurationRequest{}
-			if f8iter.DestinationDetails != nil {
-				f8elemf0 := &svcsdk.DestinationDetails{}
-				if f8iter.DestinationDetails.CloudWatchLogsDetails != nil {
-					f8elemf0f0 := &svcsdk.CloudWatchLogsDestinationDetails{}
-					if f8iter.DestinationDetails.CloudWatchLogsDetails.LogGroup != nil {
-						f8elemf0f0.SetLogGroup(*f8iter.DestinationDetails.CloudWatchLogsDetails.LogGroup)
+		f10 := []*svcsdk.LogDeliveryConfigurationRequest{}
+		for _, f10iter := range r.ko.Spec.LogDeliveryConfigurations {
+			f10elem := &svcsdk.LogDeliveryConfigurationRequest{}
+			if f10iter.DestinationDetails != nil {
+				f10elemf0 := &svcsdk.DestinationDetails{}
+				if f10iter.DestinationDetails.CloudWatchLogsDetails != nil {
+					f10elemf0f0 := &svcsdk.CloudWatchLogsDestinationDetails{}
+					if f10iter.DestinationDetails.CloudWatchLogsDetails.LogGroup != nil {
+						f10elemf0f0.SetLogGroup(*f10iter.DestinationDetails.CloudWatchLogsDetails.LogGroup)
 					}
-					f8elemf0.SetCloudWatchLogsDetails(f8elemf0f0)
+					f10elemf0.SetCloudWatchLogsDetails(f10elemf0f0)
 				}
-				if f8iter.DestinationDetails.KinesisFirehoseDetails != nil {
-					f8elemf0f1 := &svcsdk.KinesisFirehoseDestinationDetails{}
-					if f8iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream != nil {
-						f8elemf0f1.SetDeliveryStream(*f8iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream)
+				if f10iter.DestinationDetails.KinesisFirehoseDetails != nil {
+					f10elemf0f1 := &svcsdk.KinesisFirehoseDestinationDetails{}
+					if f10iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream != nil {
+						f10elemf0f1.SetDeliveryStream(*f10iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream)
 					}
-					f8elemf0.SetKinesisFirehoseDetails(f8elemf0f1)
+					f10elemf0.SetKinesisFirehoseDetails(f10elemf0f1)
 				}
-				f8elem.SetDestinationDetails(f8elemf0)
+				f10elem.SetDestinationDetails(f10elemf0)
 			}
-			if f8iter.DestinationType != nil {
-				f8elem.SetDestinationType(*f8iter.DestinationType)
+			if f10iter.DestinationType != nil {
+				f10elem.SetDestinationType(*f10iter.DestinationType)
 			}
-			if f8iter.Enabled != nil {
-				f8elem.SetEnabled(*f8iter.Enabled)
+			if f10iter.Enabled != nil {
+				f10elem.SetEnabled(*f10iter.Enabled)
 			}
-			if f8iter.LogFormat != nil {
-				f8elem.SetLogFormat(*f8iter.LogFormat)
+			if f10iter.LogFormat != nil {
+				f10elem.SetLogFormat(*f10iter.LogFormat)
 			}
-			if f8iter.LogType != nil {
-				f8elem.SetLogType(*f8iter.LogType)
+			if f10iter.LogType != nil {
+				f10elem.SetLogType(*f10iter.LogType)
 			}
-			f8 = append(f8, f8elem)
+			f10 = append(f10, f10elem)
 		}
-		res.SetLogDeliveryConfigurations(f8)
+		res.SetLogDeliveryConfigurations(f10)
 	}
 	if r.ko.Spec.MultiAZEnabled != nil {
 		res.SetMultiAZEnabled(*r.ko.Spec.MultiAZEnabled)
@@ -1693,6 +1720,9 @@ func (rm *resourceManager) newUpdateRequestPayload(
 	}
 	if r.ko.Status.SnapshottingClusterID != nil {
 		res.SetSnapshottingClusterId(*r.ko.Status.SnapshottingClusterID)
+	}
+	if r.ko.Spec.TransitEncryptionEnabled != nil {
+		res.SetTransitEncryptionEnabled(*r.ko.Spec.TransitEncryptionEnabled)
 	}
 
 	return res, nil
@@ -2151,76 +2181,85 @@ func (rm *resourceManager) setReplicationGroupOutput(
 		if resp.ReplicationGroup.PendingModifiedValues.AutomaticFailoverStatus != nil {
 			f18.AutomaticFailoverStatus = resp.ReplicationGroup.PendingModifiedValues.AutomaticFailoverStatus
 		}
+		if resp.ReplicationGroup.PendingModifiedValues.ClusterMode != nil {
+			f18.ClusterMode = resp.ReplicationGroup.PendingModifiedValues.ClusterMode
+		}
 		if resp.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations != nil {
-			f18f2 := []*svcapitypes.PendingLogDeliveryConfiguration{}
-			for _, f18f2iter := range resp.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations {
-				f18f2elem := &svcapitypes.PendingLogDeliveryConfiguration{}
-				if f18f2iter.DestinationDetails != nil {
-					f18f2elemf0 := &svcapitypes.DestinationDetails{}
-					if f18f2iter.DestinationDetails.CloudWatchLogsDetails != nil {
-						f18f2elemf0f0 := &svcapitypes.CloudWatchLogsDestinationDetails{}
-						if f18f2iter.DestinationDetails.CloudWatchLogsDetails.LogGroup != nil {
-							f18f2elemf0f0.LogGroup = f18f2iter.DestinationDetails.CloudWatchLogsDetails.LogGroup
+			f18f3 := []*svcapitypes.PendingLogDeliveryConfiguration{}
+			for _, f18f3iter := range resp.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations {
+				f18f3elem := &svcapitypes.PendingLogDeliveryConfiguration{}
+				if f18f3iter.DestinationDetails != nil {
+					f18f3elemf0 := &svcapitypes.DestinationDetails{}
+					if f18f3iter.DestinationDetails.CloudWatchLogsDetails != nil {
+						f18f3elemf0f0 := &svcapitypes.CloudWatchLogsDestinationDetails{}
+						if f18f3iter.DestinationDetails.CloudWatchLogsDetails.LogGroup != nil {
+							f18f3elemf0f0.LogGroup = f18f3iter.DestinationDetails.CloudWatchLogsDetails.LogGroup
 						}
-						f18f2elemf0.CloudWatchLogsDetails = f18f2elemf0f0
+						f18f3elemf0.CloudWatchLogsDetails = f18f3elemf0f0
 					}
-					if f18f2iter.DestinationDetails.KinesisFirehoseDetails != nil {
-						f18f2elemf0f1 := &svcapitypes.KinesisFirehoseDestinationDetails{}
-						if f18f2iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream != nil {
-							f18f2elemf0f1.DeliveryStream = f18f2iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream
+					if f18f3iter.DestinationDetails.KinesisFirehoseDetails != nil {
+						f18f3elemf0f1 := &svcapitypes.KinesisFirehoseDestinationDetails{}
+						if f18f3iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream != nil {
+							f18f3elemf0f1.DeliveryStream = f18f3iter.DestinationDetails.KinesisFirehoseDetails.DeliveryStream
 						}
-						f18f2elemf0.KinesisFirehoseDetails = f18f2elemf0f1
+						f18f3elemf0.KinesisFirehoseDetails = f18f3elemf0f1
 					}
-					f18f2elem.DestinationDetails = f18f2elemf0
+					f18f3elem.DestinationDetails = f18f3elemf0
 				}
-				if f18f2iter.DestinationType != nil {
-					f18f2elem.DestinationType = f18f2iter.DestinationType
+				if f18f3iter.DestinationType != nil {
+					f18f3elem.DestinationType = f18f3iter.DestinationType
 				}
-				if f18f2iter.LogFormat != nil {
-					f18f2elem.LogFormat = f18f2iter.LogFormat
+				if f18f3iter.LogFormat != nil {
+					f18f3elem.LogFormat = f18f3iter.LogFormat
 				}
-				if f18f2iter.LogType != nil {
-					f18f2elem.LogType = f18f2iter.LogType
+				if f18f3iter.LogType != nil {
+					f18f3elem.LogType = f18f3iter.LogType
 				}
-				f18f2 = append(f18f2, f18f2elem)
+				f18f3 = append(f18f3, f18f3elem)
 			}
-			f18.LogDeliveryConfigurations = f18f2
+			f18.LogDeliveryConfigurations = f18f3
 		}
 		if resp.ReplicationGroup.PendingModifiedValues.PrimaryClusterId != nil {
 			f18.PrimaryClusterID = resp.ReplicationGroup.PendingModifiedValues.PrimaryClusterId
 		}
 		if resp.ReplicationGroup.PendingModifiedValues.Resharding != nil {
-			f18f4 := &svcapitypes.ReshardingStatus{}
+			f18f5 := &svcapitypes.ReshardingStatus{}
 			if resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration != nil {
-				f18f4f0 := &svcapitypes.SlotMigration{}
+				f18f5f0 := &svcapitypes.SlotMigration{}
 				if resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage != nil {
-					f18f4f0.ProgressPercentage = resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage
+					f18f5f0.ProgressPercentage = resp.ReplicationGroup.PendingModifiedValues.Resharding.SlotMigration.ProgressPercentage
 				}
-				f18f4.SlotMigration = f18f4f0
+				f18f5.SlotMigration = f18f5f0
 			}
-			f18.Resharding = f18f4
+			f18.Resharding = f18f5
+		}
+		if resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionEnabled != nil {
+			f18.TransitEncryptionEnabled = resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionEnabled
+		}
+		if resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionMode != nil {
+			f18.TransitEncryptionMode = resp.ReplicationGroup.PendingModifiedValues.TransitEncryptionMode
 		}
 		if resp.ReplicationGroup.PendingModifiedValues.UserGroups != nil {
-			f18f5 := &svcapitypes.UserGroupsUpdateStatus{}
+			f18f8 := &svcapitypes.UserGroupsUpdateStatus{}
 			if resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToAdd != nil {
-				f18f5f0 := []*string{}
-				for _, f18f5f0iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToAdd {
-					var f18f5f0elem string
-					f18f5f0elem = *f18f5f0iter
-					f18f5f0 = append(f18f5f0, &f18f5f0elem)
+				f18f8f0 := []*string{}
+				for _, f18f8f0iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToAdd {
+					var f18f8f0elem string
+					f18f8f0elem = *f18f8f0iter
+					f18f8f0 = append(f18f8f0, &f18f8f0elem)
 				}
-				f18f5.UserGroupIDsToAdd = f18f5f0
+				f18f8.UserGroupIDsToAdd = f18f8f0
 			}
 			if resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToRemove != nil {
-				f18f5f1 := []*string{}
-				for _, f18f5f1iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToRemove {
-					var f18f5f1elem string
-					f18f5f1elem = *f18f5f1iter
-					f18f5f1 = append(f18f5f1, &f18f5f1elem)
+				f18f8f1 := []*string{}
+				for _, f18f8f1iter := range resp.ReplicationGroup.PendingModifiedValues.UserGroups.UserGroupIdsToRemove {
+					var f18f8f1elem string
+					f18f8f1elem = *f18f8f1iter
+					f18f8f1 = append(f18f8f1, &f18f8f1elem)
 				}
-				f18f5.UserGroupIDsToRemove = f18f5f1
+				f18f8.UserGroupIDsToRemove = f18f8f1
 			}
-			f18.UserGroups = f18f5
+			f18.UserGroups = f18f8
 		}
 		ko.Status.PendingModifiedValues = f18
 	} else {

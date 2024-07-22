@@ -5,9 +5,6 @@
 		if pendingModifications.CacheNodeType != nil {
 			ko.Spec.CacheNodeType = pendingModifications.CacheNodeType
 		}
-		if pendingModifications.TransitEncryptionEnabled != nil {
-			ko.Spec.TransitEncryptionEnabled = pendingModifications.TransitEncryptionEnabled
-		}
 	}
 	if isAvailable(r) {
 		ackcondition.SetSynced(&resource{ko}, corev1.ConditionTrue, nil, nil)

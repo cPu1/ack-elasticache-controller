@@ -126,6 +126,15 @@ func (rm *resourceManager) sdkFind(
 					}
 					f3elem.SubnetOutpost = f3elemf2
 				}
+				if f3iter.SupportedNetworkTypes != nil {
+					f3elemf3 := []*string{}
+					for _, f3elemf3iter := range f3iter.SupportedNetworkTypes {
+						var f3elemf3elem string
+						f3elemf3elem = *f3elemf3iter
+						f3elemf3 = append(f3elemf3, &f3elemf3elem)
+					}
+					f3elem.SupportedNetworkTypes = f3elemf3
+				}
 				f3 = append(f3, f3elem)
 			}
 			ko.Status.Subnets = f3
@@ -252,6 +261,15 @@ func (rm *resourceManager) sdkCreate(
 				}
 				f3elem.SubnetOutpost = f3elemf2
 			}
+			if f3iter.SupportedNetworkTypes != nil {
+				f3elemf3 := []*string{}
+				for _, f3elemf3iter := range f3iter.SupportedNetworkTypes {
+					var f3elemf3elem string
+					f3elemf3elem = *f3elemf3iter
+					f3elemf3 = append(f3elemf3, &f3elemf3elem)
+				}
+				f3elem.SupportedNetworkTypes = f3elemf3
+			}
 			f3 = append(f3, f3elem)
 		}
 		ko.Status.Subnets = f3
@@ -375,6 +393,15 @@ func (rm *resourceManager) sdkUpdate(
 					f3elemf2.SubnetOutpostARN = f3iter.SubnetOutpost.SubnetOutpostArn
 				}
 				f3elem.SubnetOutpost = f3elemf2
+			}
+			if f3iter.SupportedNetworkTypes != nil {
+				f3elemf3 := []*string{}
+				for _, f3elemf3iter := range f3iter.SupportedNetworkTypes {
+					var f3elemf3elem string
+					f3elemf3elem = *f3elemf3iter
+					f3elemf3 = append(f3elemf3, &f3elemf3elem)
+				}
+				f3elem.SupportedNetworkTypes = f3elemf3
 			}
 			f3 = append(f3, f3elem)
 		}

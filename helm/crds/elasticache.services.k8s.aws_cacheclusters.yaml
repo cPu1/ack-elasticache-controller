@@ -837,10 +837,6 @@ spec:
                   numCacheNodes:
                     format: int64
                     type: integer
-                  transitEncryptionEnabled:
-                    type: boolean
-                  transitEncryptionMode:
-                    type: string
                 type: object
               replicationGroupLogDeliveryEnabled:
                 description: |-
